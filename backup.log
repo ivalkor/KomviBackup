@@ -1,0 +1,16 @@
+-------06.06.2017------------ 
+ 9:48:56,58 
+---Start backup KOMVI--- 
+Информационная база не обнаружена!
+ERROR 
+---End backup KOMVI--- 
+---Start backup SP_KOMVI--- 
+Выгрузка информационной базы успешно завершена
+SUCCESS in backuping 1c SP_KOMVI  
+---End backup SP_KOMVI--- 
+---Start send KOMVI--- 
+ERROR in uploading KOMVI.dt to storage 
+---End send KOMVI--- 
+---Start send SP_KOMVI--- 
+Success in uploading SP_KOMVI  
+---End send SP_KOMVI--- 
