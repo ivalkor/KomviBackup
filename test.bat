@@ -9,7 +9,7 @@ Set Email_to=ivalkor@gmail.com
 Set logfile=backup.log
 Set tmplog=tmplog.log
 Set key="ssh-ed25519 256 c3:80:41:87:c7:2d:be:30:98:cf:ee:e0:1e:d2:65:07"
-Set storage=sftp://u36403:9keehiykz7@storage.u36403.netangels.ru/
+Set storage=sftp://u36403:@storage.u36403.netangels.ru/
 Set BackupPath=F:\filebackup
 Set Status=Success
 
@@ -22,7 +22,7 @@ echo %time% >> %logfile%
 
 echo ---Start backup KOMVI--- >> %logfile%
 
-%Cat%\1cv8.exe CONFIG /F"%Base%\KOMVI" /DisableStartupMessages /DumpIB"%BackupPath%\1c83_KOMVI_%date%.dt" /N€¤¬¨­¨áâà â®à /OUT"%tmplog%"
+%Cat%\1cv8.exe CONFIG /F"%Base%\KOMVI" /DisableStartupMessages /DumpIB"%BackupPath%\1c83_KOMVI_%date%.dt" /Nâ‚¬Â¤Â¬Â¨Â­Â¨Ã¡Ã¢Ã Â Ã¢Â®Ã  /OUT"%tmplog%"
 if %ERRORLEVEL% neq 0 ( type %tmplog% >> %logfile% && echo ERROR >> %logfile%
 ) else ( type %tmplog% >> %logfile% && echo SUCCESS in backuping 1c KOMVI >> %logfile% )
 echo ---End backup KOMVI--- >> %logfile%
@@ -39,7 +39,7 @@ findstr /I "error" %logfile%
 if %ErrorLevel% == 0 Set Status=Error
 echo %Status%
 pause
-sendemail.exe -f %email_from% -t %email_to% -a WinscpFull.log -u "[KOMVI Backup] %Status%" -o message-file=%logfile% -s smtp.yandex.ru:25 -xu komvi.bkp@yandex.ru -xp jLOS5CR7
+sendemail.exe -f %email_from% -t %email_to% -a WinscpFull.log -u "[KOMVI Backup] %Status%" -o message-file=%logfile% -s smtp.yandex.ru:25 -xu komvi.bkp@yandex.ru -xp 
 
 del %tmplog%
 endlocal
