@@ -5,7 +5,7 @@ rem SET Cat="C:\Program Files (x86)\1cv8\common"
 SET MAILPASSWD=
 SET STORAGEPASSWD=
 REM SET Cat="F:\Program\8.3.9.2170\bin"
-SET Cat="F:\Program\8.3.9.2170\bin"
+SET Cat="F:\Program\8.3.9.2233\bin"
 SET Base=F:\1CBasesv8
 SET Email_from=komvi.bkp@yandex.ru
 SET Email_to=ivalkor@gmail.com
@@ -27,14 +27,14 @@ IF %ErrorLevel% == 0 goto clean
 ECHO %date% %time%  >> %logfile%
 
 ECHO Start backup KOMVI >> %logfile%
-%Cat%\1cv8.exe CONFIG /F"%Base%\KOMVI" /DisableStartupMessages /DumpIB"%BackupPath%\1c83_KOMVI_%date%.dt" /NАдминистратор /OUT"%tmplog%"
+%Cat%\1cv8.exe CONFIG /F"%Base%\KOMVI" /DisableStartupMessages /DumpIB"%BackupPath%\1c83_KOMVI_%date%.dt" /NГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° /OUT"%tmplog%"
 IF %ERRORLEVEL% neq 0 ( TYPE %tmplog% >> %logfile% && ECHO ERROR >> %logfile%
 ) ELSE ( TYPE %tmplog% >> %logfile% && ECHO SUCCESS in backuping 1c KOMVI >> %logfile% )
 
 ECHO %date% %time%  >> %logfile%
 
 ECHO Start backup SP_KOMVI >> %logfile%
-%Cat%\1cv8.exe CONFIG /F"%Base%\SP_KOMVI" /DisableStartupMessages /DumpIB"%BackupPath%\1c83_SP_KOMVI_%date%.dt" /NАдминистратор /OUT"%tmplog%"
+%Cat%\1cv8.exe CONFIG /F"%Base%\SP_KOMVI" /DisableStartupMessages /DumpIB"%BackupPath%\1c83_SP_KOMVI_%date%.dt" /NГЂГ¤Г¬ГЁГ­ГЁГ±ГІГ°Г ГІГ®Г° /OUT"%tmplog%"
 IF %ERRORLEVEL% neq 0 ( TYPE %tmplog% >> %logfile% && ECHO ERROR >> %logfile%
 ) ELSE ( TYPE %tmplog% >> %logfile% && ECHO SUCCESS in backuping 1c SP_KOMVI >> %logfile% )
 
@@ -67,11 +67,11 @@ sendemail.exe -f %email_from% -t %email_to% -a WinscpFull.log -u "[KOMVI Backup]
 :clean
 rem cleancache
 rem IF Exist %USERPROFILE%\AppData\Roaming\1C\1Cv82 ( 
-rem Удаляем все файлы 
+rem Г“Г¤Г Г«ГїГҐГ¬ ГўГ±ГҐ ГґГ Г©Г«Г» 
 rem Del /F /Q %USERPROFILE%\AppData\Roaming\1C\1Cv82\*.* 
 rem Del /F /Q %USERPROFILE%\AppData\Local\1C\1Cv82\*.* 
 
-rem Удаляем все каталоги
+rem Г“Г¤Г Г«ГїГҐГ¬ ГўГ±ГҐ ГЄГ ГІГ Г«Г®ГЈГЁ
 rem for /d %%i in ("%USERPROFILE%\AppData\Roaming\1C\1Cv82\*") do rmdir /s /q "%%i" 
 rem for /d %%i in ("%USERPROFILE%\AppData\Local\1C\1Cv82\*") do rmdir /s /q "%%i" 
 rem )
